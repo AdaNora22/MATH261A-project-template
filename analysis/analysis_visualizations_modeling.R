@@ -52,6 +52,42 @@ ggplot(usa_backstroke_men_swimming,
        y = "Best USA Time (sec)") +
   theme_pubr()
 
+# adding labels for points
+ggplot(usa_backstroke_men_swimming, 
+       aes(year, 
+           best_time, 
+           label = year)) +
+  geom_point(size = 2) +
+  ggrepel::geom_text_repel(size = 3) +   # install.packages("ggrepel") if needed
+  geom_smooth(method = "lm", 
+              se = TRUE, 
+              linewidth = 0.8) +
+  labs(title = "USA Trend with Year Labels", 
+       x = "Year", 
+       y = "Best USA Time (sec)") +
+  theme_pubr()
+
+# save this visualization for the pdf report
+p_usa_trend <- ggplot(usa_backstroke_men_swimming, 
+                      aes(year, 
+                          best_time, 
+                          label = year)) +
+  geom_point(size = 2) +
+  ggrepel::geom_text_repel(size = 3) +   # install.packages("ggrepel") if needed
+  geom_smooth(method = "lm", 
+              se = TRUE, 
+              linewidth = 0.8) +
+  labs(title = "USA Trend with Year Labels", 
+       x = "Year", 
+       y = "Best USA Time (sec)") +
+  theme_pubr()
+
+ggsave("/Users/noraadadurova/Desktop/Math_261A/projects/fig-usa-trend.png", 
+       p_usa_trend, 
+       width = 7, 
+       height = 4, 
+       dpi = 300)
+
 # fitting the simple linear regression
 fit <- lm(best_time ~ year, data = usa_backstroke_men_swimming)
 summary(fit)
@@ -70,6 +106,22 @@ ggplot(aug, aes(.fitted, .resid)) +
        y = "Residuals") +
   theme_pubr()
 
+# save the Residuals vs Fitted plot for the report
+residuals_plot <- ggplot(aug, aes(.fitted, .resid)) +
+  geom_point(alpha = 0.8) +
+  geom_hline(yintercept = 0, 
+             linetype = 2) +
+  labs(title = "Residuals vs Fitted", 
+       x = "Fitted values", 
+       y = "Residuals") +
+  theme_pubr()
+
+ggsave("/Users/noraadadurova/Desktop/Math_261A/projects/residuals_plot.png", 
+       residuals_plot, 
+       width = 7, 
+       height = 4, 
+       dpi = 300)
+
 # QQ-plot of residuals
 ggplot(aug, aes(sample = .std.resid)) +
   stat_qq() +
@@ -77,20 +129,19 @@ ggplot(aug, aes(sample = .std.resid)) +
   labs(title = "QQ-Plot of Standardized Residuals") +
   theme_pubr()
 
-# adding labels for points
-ggplot(usa_backstroke_men_swimming, 
-       aes(Year, 
-           best_time, 
-           label = Year)) +
-  geom_point(size = 2) +
-  ggrepel::geom_text_repel(size = 3) +   # install.packages("ggrepel") if needed
-  geom_smooth(method = "lm", 
-              se = TRUE, 
-              linewidth = 0.8) +
-  labs(title = "USA Trend with Year Labels", 
-       x = "Year", 
-       y = "Best USA Time (sec)") +
+# save the QQ-plot for the report
+qq_plot <- ggplot(aug, aes(sample = .std.resid)) +
+  stat_qq() +
+  stat_qq_line() +
+  labs(title = "QQ-Plot of Standardized Residuals") +
   theme_pubr()
+
+ggsave("/Users/noraadadurova/Desktop/Math_261A/projects/qq_plot.png", 
+       qq_plot, 
+       width = 7, 
+       height = 4, 
+       dpi = 300)
+
 
 # comparing USA vs another team in the same style
 compare <- swimming_data |>
