@@ -17,7 +17,7 @@
 | `Athlete`    | string  | Athlete’s full name.                                                         | `Ryan Murphy`      | —     |
 | `Results`    | numeric | Official time to complete the race (seconds).                                | `52.19`            | —     |
 | `Rank`       | integer | Finishing place in the event.                                                | `1`                | 1 = gold, 2 = silver, 3 = bronze, etc.; ties possible. |
-| `time_period`| string  | Era indicator used by the source dataset. 
+| `time_period`| string  | Era indicator used by the source dataset. | `recent` | Values: `recent`, `early`
 
 
 ## Cleaned Data Dictionary (cleaned_olympic_swimming.csv)
@@ -27,8 +27,8 @@
 | `stroke`     | string  | Stroke of the event.                                                         | `Backstroke`       | Filtered to relevant stroke in analyses; source had {Backstroke, Breaststroke, Butterfly, Freestyle}. |
 | `gender`     | string  | Event division.                                                              | `Men`              | Analyses use Men; source also has Women. |
 | `athlete`    | string  | Athlete’s full name.                                                         | `Ryan Murphy`      | Unchanged. |
-| `results`    | numeric | Official finish time in **seconds**.                                         | `52.19`            | Unchanged; numeric. |
-| `team_std`   | string  | **Standardized** team/NOC code used for analysis.  
+| `results`    | numeric | Official finish time in seconds.                                         | `52.19`            | Unchanged; numeric. |
+| `team_std`   | string  | Standardized team | `USA` | Values: `USA`, `RUS`, `GER`, etc.
 
 
 ## External Resources
