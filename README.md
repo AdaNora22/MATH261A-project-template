@@ -57,6 +57,6 @@
 
 ## Acknowledgments
 
-This project repository is based on the template provided by [Rohan Alexander](https://github.com/RohanAlexander/starter_folder/tree/main).
-This project was assigned for Math 261A by [Peter Gao](https://github.com/peteragao/MATH261A-project-template/tree/main)
+* This project repository is based on the template provided by [Rohan Alexander](https://github.com/RohanAlexander/starter_folder/tree/main).
+* This project was assigned for Math 261A by [Peter Gao](https://github.com/peteragao/MATH261A-project-template/tree/main)
 
