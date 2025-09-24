@@ -1,7 +1,7 @@
 ---
-title: "Title"
-subtitle: "Subtitle"
-author: "Your Name"
+title: "Analysis of USA Olympic Swimming team"
+subtitle: "USA in Men’s team on 100m Backstroke Performance form 1970 to 2020"
+author: "Nora Adadurova"
 thanks: "Project repository available at: [https://github.com/peteragao/MATH261A-project-template](https://github.com/peteragao/MATH261A-project-template)."
 date: today
 date-format: long
@@ -19,9 +19,20 @@ library(tidyverse)
 library(palmerpenguins)
 ```
 
+# Research Question
+This paper aims to analyze Olympic swimming data and answer questions: for the USA in Men’s 100 meters backstroke, by how many seconds on average does the best expected USA time change per Olympic year? Moreover, is the trend improving (negative) or worsening (positive)?
+
+# Abstract
+
+
 # Introduction
+Motivated by my experience in competitive swimming with backstroke as my favorite stroke, I examine where USA performance in the Men’s 100 meters Backstroke has improved over time. Using Olympic results (1970-2020), I extract the best USA time per Game and fit a simple linear regression of time in seconds on year. The model estimates an average change of b_1 = -0.107252 seconds per year with 95% critical interval of [-0.1315541, -0.08294996] seconds per year, indicating faster performance over time. This negative trend suggests steady gain in speed for American swimmers in Olympic cycles, and the R^2 is equal to 0.9062759 quantifies how much of the variation is explained by year alone.
 
 # Data
+Data come from the SCORE Sports Data Repository (Brendan Karadenes, olympic_swimming.csv, published June 13, 2024; 606 rows × 10 variables originally). For this paper, I restricted the scope of the analysis to Men’s Backstroke at 100m. Team codes were standardized to handle historical naming: RUS, ROC, URS, and EUN were unified as RUS; GER, FRG, and GDR were unified as GER. Entries for the Czech/Slovak lineage (TCH, CZE, SVK) were dropped to avoid cross-entity aggregation. No missing values were detected in the retained variables for this subset.
+Each row is one athlete’s official result in the Olympic Men’s 100m Backstroke (100 meters only) for a given games. Relevant variables retained for analysis are: year (competition year), stroke (categorical), gender (categorical), athlete (name), results (race time in seconds), and team_std (standardized team code). The raw dataset originally included Location, dist_m, Team, Rank, and time_period; these were used for filtering/cleaning and then dropped from the modeling table.
+Times (results) are official Olympic results in seconds. Potential limitations include (i) changes in competitive context across eras, (ii) policy/technology/regulations changes that can induce structural shifts, and (iii) historical team-code changes; I mitigated the last via team_std. Because the dataset includes only the 100m distance for backstroke, conclusions are specific to that event.
+Comparable or validating sources include official Olympic/World Aquatics results archives and reputable third-party compilations. These could enrich covariates in future work.
 
 # Methods
 

@@ -15,6 +15,7 @@ swimming_data <- read.csv("/Users/noraadadurova/Desktop/Math_261A/projects/MATH2
 
 # let's see how does this data look
 head(swimming_data)
+summary(swimming_data)
 
 # selecting one event for simple linear regression
 usa_backstroke_men_swimming <- swimming_data |>
@@ -25,6 +26,9 @@ usa_backstroke_men_swimming <- swimming_data |>
   summarize(best_time = min(results, 
                             na.rm = TRUE),
             groups = "drop") 
+
+# check how events' table looks by itself
+head(usa_backstroke_men_swimming)
 
 # scatter plot
 ggplot(usa_backstroke_men_swimming, 
@@ -111,4 +115,3 @@ ggplot(compare,
        x = "Year", 
        y = "Best Time (sec)") +
   theme_pubr()
-
