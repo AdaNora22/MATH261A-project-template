@@ -1,6 +1,7 @@
 # MATH261A-project-1
 
-## Repository Structure (Context Table)
+## Repository Structure 
+### Context Table
 | Path / File                           | Type     | Purpose / Contents                                                               | Key Notes                                   |
 |---------------------------------------|----------|-----------------------------------------------------------------------------------|---------------------------------------------|
 | `analysis/`                           | folder   | Analysis scripts.                                                                 | —                                           |
@@ -22,7 +23,7 @@
 
 **Example statement:** Data used in this project is obtained from [SCORE Sports Data Repository](https://data.scorenetwork.org/) provided by [Brendan Karadenes](https://data.scorenetwork.org/swimming/olympic_swimming.html)
 
-## Initial Data Dictionary (raw_olympic_swimming.csv)
+### Initial Data Dictionary (raw_olympic_swimming.csv)
 | Variable     | Type    | Description                                                                 | Example            | Notes |
 |--------------|---------|------------------------------------------------------------------------------|--------------------|-------|
 | `Location`   | string  | Host city of the Olympics in which the swimmer competed.                     | `Tokyo`            | —     |
@@ -37,7 +38,7 @@
 | `time_period`| string  | Era indicator used by the source dataset. | `recent` | Values: `recent`, `early`
 
 
-## Cleaned Data Dictionary (cleaned_olympic_swimming.csv)
+### Cleaned Data Dictionary (cleaned_olympic_swimming.csv)
 | Variable     | Type    | Description                                                                 | Example            | Transform / Notes |
 |--------------|---------|------------------------------------------------------------------------------|--------------------|-------------------|
 | `year`       | integer | Calendar year of the Olympic Games.                                          | `2020`             | Unchanged from source. |
@@ -54,8 +55,8 @@
 * LLM-based chatbots: ChatGPT 5
 * Online forums: Stack Overflow
 
-# Acknowledgments
+## Acknowledgments
 
 This project repository is based on the template provided by [Rohan Alexander](https://github.com/RohanAlexander/starter_folder/tree/main).
-
+This project was assigned for Math 261A by [Peter Gao](https://github.com/peteragao/MATH261A-project-template/tree/main)
 
