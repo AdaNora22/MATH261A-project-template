@@ -35,24 +35,21 @@ unique(swimming_data$Team)
 # PUR (Puerto Rico) is NOT included into USA.
 # BLR, UKR, KAZ are successor states of URS but NOT included in Russia.
 swimming_data_updated <- swimming_data |>
-  
   # 1) standardizing team codes into a single column for Russia and Germany
   mutate(team_std = case_when(
     Team %in% c("RUS","ROC","URS","EUN") ~ "RUS",
     Team %in% c("GER","FRG","GDR")       ~ "GER",
     TRUE                                 ~ Team
   )) |> 
-  
   # 2) dropping Czechoslovakia/Czech/Slovak rows 
   filter(!Team %in% c("TCH","SVK","CZE"))
 
-# let's check resolts for data cleaning
+# let's check results for data cleaning
 length(unique(swimming_data$Team))
 length(unique(swimming_data_updated$team_std))
 
 unique(swimming_data$Team)
 unique(swimming_data_updated$team_std)
-
 
 # columns Gender: Gender == "Men"
 unique(swimming_data_updated$Gender)
@@ -60,22 +57,29 @@ unique(swimming_data_updated$Gender)
 # columns Stroke: Stroke == "Backstroke"
 unique(swimming_data_updated$Stroke)
 
-# checking is the data avalible for all contries in this category
+# checking is the data available for all countries in this category
 # Gender == "Men" and Stroke == "Backstroke"
 men_back <- swimming_data_updated |>
-  filter(Gender == "Men", Stroke == "Backstroke") |>
-  filter(!is.na(team_std), !is.na(Year))
+  filter(Gender == "Men", 
+         Stroke == "Backstroke") |>
+  filter(!is.na(team_std), 
+         !is.na(Year))
+
+head(men_back)
 
 all_years <- sort(unique(men_back$Year))
 
+head(all_years)
+
+# building coverage table by team
 coverage <- men_back |>
-  group_by(team_std) |>
+  group_by(team_std) |>  # analyzing one team at a time
   summarise(
     n_years = n_distinct(Year),
-    years   = paste(sort(unique(Year)), collapse = ", "),
+    years   = paste(sort(unique(Year)), 
+                    collapse = ", "),
     .groups = "drop") |>
-  mutate(has_all_years = n_years == length(all_years)) |>
-  arrange(desc(has_all_years), team_std)
+  mutate(has_all_years = n_years == length(all_years)) # flagging teams that appear in every year present in your subset
 
 # teams that have results for each year
 teams_all_years <- coverage |> 
@@ -88,15 +92,40 @@ teams_all_years
 
 # let's find two most covered teams in tearms of recoreds per year
 top_covered_contries <- swimming_data_updated |>
-  filter(Gender == "Men", Stroke == "Backstroke") |>
-  filter(!is.na(team_std), !is.na(Year)) |>
+  filter(Gender == "Men", 
+         Stroke == "Backstroke") |>
+  filter(!is.na(team_std), 
+         !is.na(Year)) |>
   group_by(team_std) |>
-  summarise(n_years = n_distinct(Year), .groups = "drop") |>
-  slice_max(order_by = n_years, n = 5, with_ties = TRUE) |>
-  arrange(desc(n_years), team_std)
+  summarise(n_years = n_distinct(Year), 
+            .groups = "drop") |>
+  slice_max(order_by = n_years, 
+            n = 5, 
+            with_ties = TRUE) |>
+  arrange(desc(n_years), 
+          team_std)
 
 top_covered_contries
 
+# checking the new dataset before saving it
+head(swimming_data_updated)
+
+# let's drop irrelevant to the analysis columns
+# make the remain columns start with lowercase
+swimming_data_updated <- swimming_data_updated |>
+  select(-any_of(c("Location", 
+                   "dist_m", 
+                   "Team", 
+                   "Rank", 
+                   "time_period"))) |>
+  rename_with(tolower)
+
+# check the results of changes
+head(swimming_data_updated)
+
 # let's now save the updated dataset
 path <- "/Users/noraadadurova/Desktop/Math_261A/projects/MATH261A-project-template/data/cleaned_olympic_swimming.csv"
-write.csv(swimming_data_updated, file = path, row.names = FALSE)
+write.csv(swimming_data_updated, 
+          file = path, 
+          row.names = FALSE)
+
