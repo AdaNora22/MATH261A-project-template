@@ -1,25 +1,22 @@
 # MATH261A-project-1
 
 ## Repository Structure (Context Table)
-## Repository Structure (Context Table)
-
-| Path / File                                      | Type        | Purpose / Contents                                                                 | Key Notes |
-|--------------------------------------------------|-------------|------------------------------------------------------------------------------------|-----------|
-| `analysis/`                                      | folder      | Analysis scripts.                                                                  | —         |
-| ├─ `analysis_visualizations_modeling.R`          | R script    | Builds figures (trend, diagnostics) and/or saves plot files.                       | Source in the paper or save images via `ggsave()`. |
-| └─ `cleaning_data.R`                             | R script    | Cleans raw data, standardizes team codes, creates `team_std`, exports cleaned CSV. | Produces `data/cleaned_olympic_swimming.csv`. |
-| `data/`                                          | folder      | Data files.                                                                        | —         |
-| ├─ `cleaned_olympic_swimming.csv`                | CSV         | **Cleaned** dataset used for analysis/modeling.                                    | Output of `cleaning_data.R`. |
-| ├─ `olympic_swimming_1912_2020.csv`              | CSV         | Source dataset from SCORE (full historical coverage).                              | Read-only; keep original. |
-| └─ `raw_olympic_swimming.csv`                    | CSV         | Raw import (if used) prior to cleaning.                                            | Optional staging file. |
-| `paper/`                                         | folder      | Manuscript assets.                                                                 | —         |
-| ├─ `paper.qmd`                                   | Quarto      | Main paper (text, math, figures included via chunks).                              | Render to PDF/HTML with Quarto. |
-| └─ `paper.pdf`                                   | PDF         | Compiled manuscript.                                                               | Generated from `paper.qmd`. |
-| `references.bib`                                 | BibTeX      | Bibliography entries for Quarto citations.                                         | Point to in YAML (`bibliography:`). |
-| `MATH261A-project-template.Rproj`                | RProj       | RStudio project file.                                                              | Open to load the project. |
-| `.gitignore`                                     | config      | Files/folders Git should ignore.                                                   | Add large data/outputs as needed. |
-| `README.md`                                      | Markdown    | Project overview, data dictionary, how to reproduce.                               | You’re editing this file. |
-| `git/`                                           | folder      | (If present) Git-related artifacts or placeholders.                                | Optional/unused in many setups. |
+| Path / File                           | Type     | Purpose / Contents                                                               | Key Notes                                   |
+|---------------------------------------|----------|-----------------------------------------------------------------------------------|---------------------------------------------|
+| `analysis/`                           | folder   | Analysis scripts.                                                                 | —                                           |
+| `analysis/analysis_visualizations_modeling.R` | R script | Builds figures (trend, diagnostics) and/or saves plot files.                      | Source in paper or save via `ggsave()`.     |
+| `analysis/cleaning_data.R`            | R script | Cleans raw data, standardizes team codes (`team_std`), exports cleaned CSV.       | Produces `data/cleaned_olympic_swimming.csv`. |
+| `data/`                               | folder   | Data files.                                                                       | —                                           |
+| `data/cleaned_olympic_swimming.csv`   | CSV      | **Cleaned** dataset used for analysis/modeling.                                   | Output of `cleaning_data.R`.                |
+| `data/olympic_swimming_1912_2020.csv` | CSV      | Source dataset from SCORE (full historical coverage, didn't use in analysis).     | Read-only; keep original.                    |
+| `data/raw_olympic_swimming.csv`       | CSV      | Raw import (if used) prior to cleaning.                                           | Optional staging file.                       |
+| `paper/`                              | folder   | Manuscript assets.                                                                | —                                           |
+| `paper/paper.qmd`                     | Quarto   | Main paper (text, math, figures included via chunks).                             | Render to PDF/HTML with Quarto.             |
+| `paper/paper.pdf`                     | PDF      | Compiled manuscript.                                                              | Generated from `paper.qmd`.                  |
+| `references.bib`                      | BibTeX   | Bibliography entries for Quarto citations.                                        | Set in YAML: `bibliography: references.bib`. |
+| `MATH261A-project-template.Rproj`     | RProj    | RStudio project file.                                                             | Open to load the project.                    |
+| `.gitignore`                          | config   | Files/folders Git should ignore.                                                  | Add large data/outputs as needed.           |
+| `README.md`                           | Markdown | Project overview, data dictionaries, how to reproduce.                            | You’re editing this file.                    |
 
 ## Data 
 
