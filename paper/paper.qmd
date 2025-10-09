@@ -134,7 +134,16 @@ knitr::include_graphics("/Users/noraadadurova/Desktop/Math_261A/projects/fig-usa
 
 
 # References
+@online{gao261a,
+  author  = {Gao, Peter},
+  title   = {MATH261A Project Template (GitHub)},
+  url     = {https://github.com/peteragao/MATH261A-project-template/tree/main},
+  urldate = {2025-09-24}
+}
+
+
 - Gao, P. *MATH261A Project Template (GitHub)*. Retrieved September 24, 2025, from <https://github.com/peteragao/MATH261A-project-template/tree/main>
 - SCORE Sports Data Repository. (2024, June 13). *Olympic Swimming*. Retrieved September 24, 2025, from <https://data.scorenetwork.org/swimming/olympic_swimming.html>
 - International Olympic Committee. *Olympic Results Database*. Retrieved September 24, 2025, from <https://www.olympics.com/en/olympic-games/olympic-results>
 - Olympedia. *Countries (National Olympic Committees)*. Retrieved September 24, 2025, from <https://www.olympedia.org/countries>
+- 

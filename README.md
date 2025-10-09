@@ -1,5 +1,8 @@
 # MATH261A-project-1
 
+### Author: Nora Adadurova
+### Date: 10/08/2025
+
 ## Repository Structure 
 ### Context Table
 | Path / File                           | Type     | Purpose / Contents                                                               | Key Notes                                   |
