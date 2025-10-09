@@ -2,7 +2,7 @@
 title: "Analysis of USA Olympic Swimming team"
 subtitle: "USA's Best Men’s Performance on 100 (m) Backstroke form 1970 to 2020"
 author: "Nora Adadurova"
-thanks: "Project repository available at: [https://github.com/peteragao/MATH261A-project-template](https://github.com/peteragao/MATH261A-project-template)."
+thanks: "Project repository available at: [https://github.com/AdaNora22/MATH261A-project-template/tree/main](https://github.com/AdaNora22/MATH261A-project-template/tree/main)."
 date: 09/20/2025
 date-format: long
 # abstract: "Abstract here."
