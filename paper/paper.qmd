@@ -7,8 +7,7 @@ date: 10/08/2025
 date-format: long
 # abstract: "Abstract here."
 format: pdf
-bibliography: [refs.bib, software.bib]
-csl: apa.csl
+bibliography: [references.bib]
 ---
 
 ```{r}
@@ -24,10 +23,10 @@ library(palmerpenguins)
 This paper aims to analyze Olympic swimming data and answer questions: for the USA in Men’s 100 meters backstroke, by how many seconds on average does the best expected USA time change per Olympic year? Moreover, is the trend improving (negative) or worsening (positive)?
 
 # Abstract
-This paper analyzes Olympic Men’s 100 meters Backstroke performance for the USA team from 1972 to 2020. From swimmer-level per game results, I found the best USA time per Olympiad and fit a simple linear regression of time in seconds on year. The estimated trend is −0.1073 seconds per year with 95% Confidence Interval of [−0.1316, −0.0829] and R² = 0.9063, i.e., roughly −0.43 seconds per Olympic cycle, indicating significantly faster performances over time. These results show a clear, sustained improvement in peak USA backstroke performance across the observed years.
+This paper analyzes Olympic Men’s 100 meters Backstroke performance for the USA team from 1972 to 2020 (@score2024swim). From swimmer-level per game results, I found the best USA time per Olympiad and fit a simple linear regression of time in seconds on year. The estimated trend is −0.1073 seconds per year with 95% Confidence Interval of [−0.1316, −0.0829] and R² = 0.9063, i.e., roughly −0.43 seconds per Olympic cycle, indicating significantly faster performances over time. These results show a clear, sustained improvement in peak USA backstroke performance across the observed years.
 
 # Introduction
-Motivated by my experience in competitive swimming with backstroke as my favorite stroke, I examine where USA performance in the Men’s 100 meters Backstroke has improved over time. Using Olympic results (1970-2020), I extract the best USA time per game and fit a simple linear regression of time in seconds on year. The model estimates an average change of b_1 = -0.1073 seconds per year with 95% critical interval of [-0.1316, -0.0829] seconds per year, indicating faster performance over time. This negative trend suggests steady gain in speed for American swimmers in Olympic cycles, and the R² = 0.9063 quantifies how much of the variation is explained by year alone.
+Motivated by my experience in competitive swimming with backstroke as my favorite stroke, I used R to examine where USA performance (@olympedia_countries) in the Men’s 100 meters Backstroke has improved over time. Using Olympic results (1970-2020) (@ioc_results), I extract the best USA time per game and fit a simple linear regression (@gelman_regression_2021) of time in seconds on year. The model estimates an average change of b_1 = -0.1073 seconds per year with 95% critical interval of [-0.1316, -0.0829] seconds per year, indicating faster performance over time. This negative trend suggests steady gain in speed for American swimmers in Olympic cycles, and the R² = 0.9063 quantifies how much of the variation is explained by year alone.
 
 # Data
 Data come from the SCORE Sports Data Repository (Brendan Karadenes, olympic_swimming.csv, published June 13, 2024; 606 rows × 10 variables originally). For this paper, I restricted the scope of the analysis to Men’s Backstroke at 100m. Team codes were standardized to handle historical naming: RUS, ROC, URS, and EUN were unified as RUS; GER, FRG, and GDR were unified as GER. Entries for the Czech/Slovak lineage (TCH, CZE, SVK) were dropped to avoid cross-entity aggregation. No missing values were detected in the retained variables for this subset.
